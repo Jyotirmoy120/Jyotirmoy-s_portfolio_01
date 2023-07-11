@@ -61,7 +61,7 @@ body {
     font-size: 1.7rem;
     color: var(--text-color);
     font-weight: 500;
-    margin-left: 3.5rem;
+    margin-left: 1.9rem;
     transition: .3s;
 }
 
@@ -69,7 +69,56 @@ body {
 .navbar a:hover,
 .navbar a.active {
     color: var(--main-color);
+    display: inline-block;
+
+    position: relative;
+
+    transform-origin: left;
 }
+
+
+
+
+
+.navbar a {
+
+
+    text-decoration: none;
+    letter-spacing: none;
+
+    display: inline-block;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.navbar a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--main-color);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+@media screen and (max-height: 300px) {
+    .navbar a {
+        margin-top: 40px;
+    }
+}
+
+
+
+
+
 
 #menu-icon {
     position: relative;
@@ -149,8 +198,10 @@ section {
 
 
 
- 
+
 }
+
+
 
 
 .home-content p {
@@ -664,6 +715,8 @@ span {
     cursor: pointer;
 }
 
+
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -1000,4 +1053,29 @@ section:nth-child(odd) .animate.scroll,
     100% {
         width: 0;
     }
+}
+
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
